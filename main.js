@@ -8,8 +8,10 @@ const closeForm = document.getElementById('closeForm');
 addNoteButton.addEventListener('click', () => {
     formContainer.style.display = 'block';
     document.getElementById('articleContainer').style.display = 'none';
-      document.getElementById('add1').style.display ='block'
+    document.getElementById('add1').style.display ='block'
     document.getElementById('up1').style.display ='none'
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
 });
 
 closeForm.addEventListener('click', () => {
