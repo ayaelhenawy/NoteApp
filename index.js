@@ -1,46 +1,18 @@
-const express =require('express');
+import express, { json } from 'express';
 const app=express();
-const mysql=require('mysql2');
-const cors=require('cors');
-const query=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'noteapp'
-});
+import cors from 'cors';
+import {query}from './DB/dbConnection.js'
+import { router } from './src/modules/notes/allNotes.router.js' 
+import addnote from './src/modules/notes/addnote.router.js'
+import updatenote from './src/modules/notes/updatenote.router.js'
+import deletenote from './src/modules/notes/deletenote.router.js'
 
-
- app.use(express.json());
+ app.use(json());
  app.use(cors());
-
-
-
-app.post('/addnote',(req,res)=>{
-  let {title,description}=req.body;
-  query.execute(`insert into notes (title,description) values ('${title}','${description}')`);
-      res.json({"message": "sucsess"});
-})
-app.get('/',(req,res)=>{
-  query.execute("select* from notes",(err,data)=>{
-    if(err){
-      res.json({"message": "error"});
-    }
-    else res.json(data);
-  })
-})
-
-app.put('/updatenote',(req,res)=>{
-  let {id,title,description}=req.body;
-  query.execute(`update notes set description='${description}'where id=${id}`);
-      res.json({"message": "sucsess"});
-})
-app.delete('/deletenote',(req,res)=>{
-  let {id}=req.body;
-  query.execute(`delete from notes where id=${id}`);
-      res.json({"message": "sucsess"});
-})
-
-
+ app.use(router);
+ app.use(addnote);
+ app.use(updatenote);
+ app.use(deletenote);
 
 
 app.listen(3000,()=>{
