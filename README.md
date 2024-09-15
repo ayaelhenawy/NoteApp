@@ -1,6 +1,4 @@
-# Let's create the README.md file based on the designed structure provided.
 
-content = """
 # 📝 NoteApp
 
 **NoteApp** is a simple web application that allows users to create, edit, and delete notes. It interacts with an API to display the notes and offers full CRUD functionality (Create, Read, Update, Delete).
@@ -60,7 +58,7 @@ Before you begin, make sure you have the following installed:
 
 5. **Start the server**:
    \`\`\`bash
-   npm start
+   nodemom
    \`\`\`
 
    The app will be running on `http://localhost:3000`.
@@ -86,20 +84,4 @@ Before you begin, make sure you have the following installed:
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! If you'd like to contribute:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`.
-3. Commit your changes: `git commit -m 'Add new feature'`.
-4. Push to the branch: `git push origin feature/your-feature-name`.
-5. Open a Pull Request.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
